@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Absen Smart Surau – Masjid Marhamah Kalumbuk</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <h2>📘 Absen Smart Surau</h2>
+    <h3>Masjid Marhamah Kalumbuk</h3>
+
+    <!-- ABSEN SISWA -->
+    <div class="box">
+      <input id="nama" placeholder="Nama Siswa" />
+
+      <select id="jenjang" onchange="updateKelas()">
+        <option value="">Pilih Jenjang</option>
+        <option value="SD">SD</option>
+        <option value="SMP">SMP</option>
+      </select>
+
+      <select id="kelas">
+        <option value="">Pilih Kelas</option>
+      </select>
+
+      <button onclick="absen()">Hadir</button>
+      <p id="info"></p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="box hidden">
+      <h4>📊 Rekap Kehadiran</h4>
+      <p id="rekap"></p>
+      <canvas id="chart"></canvas>
+
+      <button onclick="download()">Download Rekap</button>
+      <button id="resetBtn" class="hidden" onclick="resetData()">
+        Reset Data
+      </button>
+
+      <!-- BANTU ABSEN -->
+      <div id="bantuBox" class="hidden">
+        <hr />
+        <h4>✋ Bantu Absen</h4>
+
+        <input id="bNama" placeholder="Nama Siswa" />
+
+        <select id="bJenjang" onchange="updateBKelas()">
+          <option value="">Pilih Jenjang</option>
+          <option value="SD">SD</option>
+          <option value="SMP">SMP</option>
+        </select>
+
+        <select id="bKelas">
+          <option value="">Pilih Kelas</option>
+        </select>
+
+        <button onclick="bantuAbsen()">Simpan Absen</button>
+      </div>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="login-kecil">
+      <details>
+        <summary>🔐 Panitia / Admin</summary>
+        <input id="user" placeholder="Username" />
+        <input id="pass" type="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </details>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+  </body>
+</html>

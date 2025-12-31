@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Absen Smart Surau – Masjid Marhamah Kalumbuk</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap");
+
+      :root {
+        --hijau-surau: #2e7d32;
+        --hijau-muda: #4caf50;
+        --emas: #d4af37;
+        --coklat: #5d4037;
+        --abu-muda: #f5f5f5;
+        --border-radius: 12px;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Tajawal", Arial, sans-serif;
+        background: linear-gradient(135deg, #f9f9f9 0%, #e8f5e9 100%);
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232E7D32' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        text-align: center;
+        padding: 15px;
+        margin: 0;
+        color: #333;
+        min-height: 100vh;
+      }
+
+      h2 {
+        font-family: "Amiri", serif;
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+        color: var(--hijau-surau);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        margin-top: 0;
+        color: var(--coklat);
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+
+      .ornament {
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--hijau-surau),
+          var(--emas),
+          var(--hijau-surau),
+          transparent
+        );
+        margin: 8px auto 16px;
+        border-radius: 2px;
+        max-width: 200px;
+      }
+
+      .box {
+        background: white;
+        padding: 20px;
+        margin: 15px auto;
+        max-width: 420px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, var(--hijau-surau), var(--emas));
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 12px 16px;
+        margin: 8px 0;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--hijau-surau);
+        box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+      }
+
+      button {
+        background: var(--hijau-surau);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      button:hover {
+        background: var(--hijau-muda);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+      }
+
+      button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(46, 125, 50, 0.2);
+      }
+
+      button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+
+      button:focus:not(:active)::after {
+        animation: ripple 0.6s ease-out;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(50, 50);
+          opacity: 0;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #dashboard button {
+        background: var(--coklat);
+      }
+
+      #dashboard button:hover {
+        background: #4e342e;
+      }
+
+      #resetBtn {
+        background: #c62828;
+      }
+
+      #resetBtn:hover {
+        background: #b71c1c;
+      }
+
+      .login-kecil {
+        max-width: 240px;
+        margin: 20px auto 0;
+        font-size: 12px;
+      }
+
+      .login-kecil input,
+      .login-kecil button {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      canvas {
+        max-width: 380px;
+        margin: 15px auto;
+        background: #f9fdfa;
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      #info {
+        min-height: 24px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      #info:empty::before {
+        content: "Silakan isi data untuk absen shalat";
+        color: #777;
+        font-style: italic;
+      }
+
+      .success {
+        color: #2e7d32;
+      }
+
+      .error {
+        color: #c62828;
+      }
+
+      details summary {
+        font-weight: 600;
+        color: var(--coklat);
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details summary::before {
+        content: "🔒";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+        .box {
+          padding: 16px;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        input,
+        select,
+        button {
+          padding: 10px;
+          font-size: 15px;
+        }
+      }
+
+      /* Chart.js styling */
+      .chartjs-render-monitor {
+        max-width: 100% !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>📘 Absen Smart Surau</h2>
+    <h3>Masjid Marhamah Kalumbuk</h3>
+
+    <!-- ABSEN SISWA -->
+    <div class="box">
+      <input id="nama" placeholder="Nama Siswa" />
+
+      <select id="jenjang" onchange="updateKelas()">
+        <option value="">Pilih Jenjang</option>
+        <option value="SD">SD</option>
+        <option value="SMP">SMP</option>
+      </select>
+
+      <select id="kelas">
+        <option value="">Pilih Kelas</option>
+      </select>
+
+      <button onclick="absen()">Hadir</button>
+      <p id="info"></p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="box hidden">
+      <h4>📊 Rekap Kehadiran</h4>
+      <p id="rekap"></p>
+      <canvas id="chart"></canvas>
+      <button onclick="download()">Download Rekap</button>
+      <button id="resetBtn" class="hidden" onclick="resetData()">
+        Reset Data
+      </button>
+
+      <!-- BANTU ABSEN -->
+      <div id="bantuBox" class="hidden">
+        <hr />
+        <h4>✋ Bantu Absen</h4>
+        <input id="bNama" placeholder="Nama Siswa" />
+
+        <select id="bJenjang" onchange="updateBKelas()">
+          <option value="">Pilih Jenjang</option>
+          <option value="SD">SD</option>
+          <option value="SMP">SMP</option>
+        </select>
+
+        <select id="bKelas">
+          <option value="">Pilih Kelas</option>
+        </select>
+
+        <button onclick="bantuAbsen()">Simpan Absen</button>
+      </div>
+    </div>
+
+    <!-- LOGIN KECIL -->
+    <div class="login-kecil">
+      <details>
+        <summary>🔐 Panitia / Admin</summary>
+        <input id="user" placeholder="Username" />
+        <input id="pass" type="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </details>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      /* ===== STORAGE ===== */
+      const DATA_KEY = "absen_marhamah";
+      const DEVICE_KEY = "perangkat_sudah_absen";
+
+      let data = JSON.parse(localStorage.getItem(DATA_KEY)) || [];
+      let role = "",
+        chartObj = null;
+
+      /* ===== AKUN ===== */
+      const users = {
+        admin: btoa("adminmarhamah"),
+        panitia: btoa("panitia2025"),
+      };
+
+      /* ===== KELAS SISWA ===== */
+      function updateKelas() {
+        const jenjang = document.getElementById("jenjang").value;
+        const kelas = document.getElementById("kelas");
+        kelas.innerHTML = '<option value="">Pilih Kelas</option>';
+
+        if (jenjang === "SD") {
+          for (let i = 1; i <= 6; i++) {
+            kelas.innerHTML += `<option value="Kelas ${i}">Kelas ${i}</option>`;
+          }
+        }
+        if (jenjang === "SMP") {
+          for (let i = 7; i <= 9; i++) {
+            kelas.innerHTML += `<option value="Kelas ${i}">Kelas ${i}</option>`;
+          }
+        }
+      }
+
+      /* ===== KELAS BANTU ===== */
+      function updateBKelas() {
+        const jenjang = document.getElementById("bJenjang").value;
+        const kelas = document.getElementById("bKelas");
+        kelas.innerHTML = '<option value="">Pilih Kelas</option>';
+
+        if (jenjang === "SD") {
+          for (let i = 1; i <= 6; i++) {
+            kelas.innerHTML += `<option value="Kelas ${i}">Kelas ${i}</option>`;
+          }
+        }
+        if (jenjang === "SMP") {
+          for (let i = 7; i <= 9; i++) {
+            kelas.innerHTML += `<option value="Kelas ${i}">Kelas ${i}</option>`;
+          }
+        }
+      }
+
+      /* ===== ANTI NAMA GANDA ===== */
+      function sudahAbsen(n, j, k) {
+        return data.some(
+          (d) =>
+            d.nama.toLowerCase() === n.toLowerCase() &&
+            d.jenjang === j &&
+            d.kelas === k
+        );
+      }
+
+      /* ===== ABSEN SISWA (1 HP = 1x) ===== */
+      function absen() {
+        if (localStorage.getItem(DEVICE_KEY)) {
+          info.innerText = "❌ Perangkat ini sudah digunakan";
+          return;
+        }
+
+        const n = nama.value.trim();
+        const j = jenjang.value;
+        const k = kelas.value;
+
+        if (!n || !j || !k) {
+          info.innerText = "❌ Lengkapi data";
+          return;
+        }
+        if (sudahAbsen(n, j, k)) {
+          info.innerText = "❌ Sudah absen";
+          return;
+        }
+
+        data.push({
+          nama: n,
+          jenjang: j,
+          kelas: k,
+          waktu: new Date().toLocaleString(),
+        });
+        localStorage.setItem(DATA_KEY, JSON.stringify(data));
+        localStorage.setItem(DEVICE_KEY, "true");
+
+        info.innerText = "✅ Absen berhasil";
+        nama.value = jenjang.value = "";
+        kelas.innerHTML = '<option value="">Pilih Kelas</option>';
+        updateDashboard();
+      }
+
+      /* ===== LOGIN ===== */
+      function login() {
+        const u = user.value;
+        const p = btoa(pass.value);
+        if (users[u] === p) {
+          role = u;
+          dashboard.classList.remove("hidden");
+          bantuBox.classList.remove("hidden");
+          if (role === "admin") resetBtn.classList.remove("hidden");
+          updateDashboard();
+          alert("Login sebagai " + role);
+        } else alert("❌ Login gagal");
+      }
+
+      /* ===== BANTU ABSEN ===== */
+      function bantuAbsen() {
+        const n = bNama.value.trim();
+        const j = bJenjang.value;
+        const k = bKelas.value;
+
+        if (!n || !j || !k) {
+          alert("Lengkapi data");
+          return;
+        }
+        if (sudahAbsen(n, j, k)) {
+          alert("❌ Sudah absen");
+          return;
+        }
+
+        data.push({
+          nama: n,
+          jenjang: j,
+          kelas: k,
+          waktu: new Date().toLocaleString(),
+          bantu: true,
+        });
+        localStorage.setItem(DATA_KEY, JSON.stringify(data));
+        alert("✅ Absen tersimpan");
+        bNama.value = bJenjang.value = "";
+        bKelas.innerHTML = '<option value="">Pilih Kelas</option>';
+        updateDashboard();
+      }
+
+      /* ===== DASHBOARD ===== */
+      function updateDashboard() {
+        const sd = data.filter((d) => d.jenjang === "SD").length;
+        const smp = data.filter((d) => d.jenjang === "SMP").length;
+        rekap.innerText = `Total: ${data.length} | SD: ${sd} | SMP: ${smp}`;
+
+        if (chartObj) chartObj.destroy();
+        chartObj = new Chart(chart, {
+          type: "bar",
+          data: { labels: ["SD", "SMP"], datasets: [{ data: [sd, smp] }] },
+        });
+      }
+
+      /* ===== DOWNLOAD ===== */
+      function download() {
+        let csv = "Nama,Jenjang,Kelas,Waktu\n";
+        data.forEach((d) => {
+          csv += `${d.nama},${d.jenjang},${d.kelas},${d.waktu}\n`;
+        });
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([csv]));
+        a.download = "absen_marhamah.csv";
+        a.click();
+      }
+
+      /* ===== RESET ADMIN ===== */
+      function resetData() {
+        if (role !== "admin") return;
+        if (confirm("Hapus semua data?")) {
+          localStorage.removeItem(DATA_KEY);
+          localStorage.removeItem(DEVICE_KEY);
+          data = [];
+          updateDashboard();
+          alert("Data direset");
+        }
+      }
+    </script>
+  </body>
+</html>
